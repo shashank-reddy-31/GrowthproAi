@@ -1,117 +1,192 @@
-# Business Dashboard Frontend
+# Mini Local Business Dashboard
 
-A modern React application for the Mini Local Business Dashboard, built with Tailwind CSS and designed to simulate how small businesses might view their SEO content and Google Business data.
+A full-stack web application that provides comprehensive business analytics and insights for local businesses. Built with React frontend and Express.js backend.
 
-## Features
+## 🚀 Features
 
-- **Responsive Design**: Mobile-friendly interface that works across all screen sizes
-- **Modern UI**: Clean, professional design using Tailwind CSS
-- **Real-time Data**: Live updates from the backend API
-- **SEO Headline Generation**: AI-style headline regeneration
-- **Business Analytics**: Simulated Google Business ratings and reviews
-- **Toast Notifications**: User-friendly feedback for all actions
+- **Business Analytics Dashboard**: Generate comprehensive business reports with simulated data
+- **SEO Headline Generation**: AI-powered SEO headlines for better online visibility
+- **Multi-tab Analytics**: 
+  - Overview Dashboard
+  - Financial Metrics
+  - Social Media Analytics
+  - SEO Performance
+  - Customer Insights
+- **Real-time Data**: Simulated real-time business metrics and KPIs
+- **Responsive Design**: Modern UI that works on desktop and mobile devices
 
-## Technologies Used
+## 🛠️ Tech Stack
 
-- **React 18** - Modern React with hooks
-- **Tailwind CSS** - Utility-first CSS framework
-- **Axios** - HTTP client for API requests
-- **React Hot Toast** - Toast notifications
-- **Lucide React** - Beautiful icons
+### Frontend
+- **React.js** - User interface framework
+- **Tailwind CSS** - Styling and responsive design
+- **Axios** - HTTP client for API calls
+- **React Hot Toast** - User notifications
+- **Lucide React** - Modern icons
 
-## Installation
+### Backend
+- **Node.js** - JavaScript runtime
+- **Express.js** - Web application framework
+- **CORS** - Cross-origin resource sharing
+- **Dotenv** - Environment variables
 
-1. Install dependencies:
+## 📁 Project Structure
+
+```
+full-stack-intern-assignment/
+├── frontend/
+│   ├── src/
+│   │   ├── App.js          # Main dashboard component
+│   │   ├── App.css         # Custom styles
+│   │   ├── index.js        # React entry point
+│   │   └── index.css       # Global styles
+│   ├── package.json        # Frontend dependencies
+│   └── public/             # Static files
+├── backend/
+│   ├── server.js           # Express server with API endpoints
+│   ├── package.json        # Backend dependencies
+│   └── README.md           # Backend documentation
+└── README.md               # This file
+```
+
+## 🚀 Quick Start
+
+### Prerequisites
+- **Node.js** (version 14 or higher)
+- **npm** (comes with Node.js)
+
+### Step 1: Clone and Setup
 ```bash
+# Clone the repository (if using git)
+git clone <repository-url>
+cd full-stack-intern-assignment
+
+# Or if you have the project files directly
+cd full-stack-intern-assignment
+```
+
+### Step 2: Install Dependencies
+
+#### Backend Setup
+```bash
+cd backend
 npm install
 ```
 
-2. Start the development server:
+#### Frontend Setup
 ```bash
+cd frontend
+npm install
+```
+
+### Step 3: Run the Application
+
+#### Option 1: Run Backend and Frontend Separately (Recommended)
+
+**Terminal 1 - Start Backend:**
+```bash
+cd backend
 npm start
 ```
+The backend will start on `http://localhost:5000`
 
-The application will be available at `http://localhost:3000`
-
-## Project Structure
-
+**Terminal 2 - Start Frontend:**
+```bash
+cd frontend
+npm start
 ```
-src/
-├── App.js              # Main application component
-├── App.css             # Custom styles
-├── index.js            # Application entry point
-├── index.css           # Global styles with Tailwind
-└── services/
-    └── api.js          # API service functions
+The frontend will start on `http://localhost:3000` and open automatically in your browser.
+
+#### Option 2: Run Both Together (if concurrently is installed)
+```bash
+# From the root directory
+npm run dev
 ```
 
-## Components
+### Step 4: Use the Application
 
-### Main Dashboard
-- **Input Form**: Business name and location inputs
-- **Business Analytics Card**: Displays rating, reviews, and SEO headline
-- **Regenerate Button**: Fetches new AI-generated headlines
-- **Responsive Layout**: Adapts to mobile and desktop screens
+1. **Open your browser** and go to `http://localhost:3000`
+2. **Enter Business Details**:
+   - Business Name (e.g., "Cake & Co")
+   - Location (e.g., "New York")
+3. **Click "Generate Analytics Report"**
+4. **Explore the Dashboard**:
+   - Switch between tabs (Overview, Financial, Social Media, SEO Analytics, Customer Insights)
+   - Click "Regenerate Headline" to get new SEO headlines
+   - View comprehensive business metrics and analytics
 
-### Features
+## 📊 API Endpoints
 
-1. **Business Data Input**
-   - Business name field
-   - Location field
-   - Form validation
-   - Loading states
+### Backend API (Port 5000)
 
-2. **Analytics Display**
-   - Google rating (simulated)
-   - Number of reviews (simulated)
-   - AI-generated SEO headline
-   - Business information summary
+| Endpoint | Method | Description | Request Body |
+|----------|--------|-------------|--------------|
+| `/business-data` | POST | Generate business analytics | `{ "name": "Business Name", "location": "Location" }` |
+| `/regenerate-headline` | GET | Generate new SEO headline | Query params: `name`, `location` |
+| `/health` | GET | Health check endpoint | None |
+| `/` | GET | API information | None |
 
-3. **SEO Headline Management**
-   - Display current headline
-   - Regenerate new headlines
-   - Loading states for regeneration
+### Example API Usage
 
-## API Integration
+```bash
+# Generate business data
+curl -X POST http://localhost:5000/business-data \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Cake & Co", "location": "New York"}'
 
-The frontend communicates with the backend through these endpoints:
+# Regenerate headline
+curl "http://localhost:5000/regenerate-headline?name=Cake%20%26%20Co&location=New%20York"
+```
 
-- `POST /business-data` - Get business analytics
-- `GET /regenerate-headline` - Get new SEO headline
+## 🎯 Features in Detail
 
-## Styling
+### Business Analytics Dashboard
+- **Google Rating & Reviews**: Simulated customer ratings and review counts
+- **Monthly Revenue**: Financial performance metrics
+- **Customer Growth**: Percentage growth indicators
+- **Social Media Metrics**: Instagram, Facebook, and Google Business data
+- **SEO Performance**: Keyword rankings, organic traffic, domain authority
+- **Customer Satisfaction**: Overall satisfaction scores and recommendations
 
-The application uses Tailwind CSS for all styling, providing:
+### Data Visualization
+- **Progress Bars**: Visual representation of metrics
+- **Color-coded Indicators**: Green (good), Yellow (average), Red (needs improvement)
+- **Responsive Cards**: Clean, modern UI components
+- **Tab Navigation**: Organized data presentation
 
-- **Responsive Design**: Mobile-first approach
-- **Modern UI**: Clean, professional appearance
-- **Accessibility**: Proper focus states and contrast
-- **Animations**: Smooth transitions and loading states
+## 🔧 Troubleshooting
 
-## Development
+### Common Issues
 
-- `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm test` - Run tests
+**1. Port Already in Use**
+```bash
+# If port 5000 is busy, change it in backend/server.js
+const PORT = process.env.PORT || 3001;  # Change to different port
+```
 
-## Browser Support
+**2. Frontend Can't Connect to Backend**
+- Ensure backend is running on port 5000
+- Check that CORS is enabled in backend
+- Verify API URLs in frontend/src/App.js
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+**3. Module Not Found Errors**
+```bash
+# Reinstall dependencies
+cd frontend && npm install
+cd ../backend && npm install
+```
 
-## Performance
+**4. Concurrently Not Found**
+- Run backend and frontend in separate terminals (Option 1 above)
+- Or install concurrently: `npm install -g concurrently`
 
-- Optimized bundle size
-- Lazy loading where appropriate
-- Efficient re-renders with React hooks
-- Minimal dependencies
+### Development Commands
 
-## Next Steps
+```bash
+# Backend development (auto-restart on changes)
+cd backend
+npm run dev
 
-- Add more business metrics
-- Implement data persistence
-- Add user authentication
-- Add more SEO tools
-- Implement analytics tracking
+# Frontend development (auto-reload on changes)
+cd frontend
+npm start
